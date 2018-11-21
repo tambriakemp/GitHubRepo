@@ -7,7 +7,7 @@ function watchForm () {
   $('#search').on('submit', function(ev) {
 
     ev.preventDefault();
-    var userInput = $('input').val();
+    let userInput = $('input').val();
 
     fetchGithubUserRepo(userInput);
     
@@ -16,8 +16,7 @@ function watchForm () {
 
 //function to pull api data
 function fetchGithubUserRepo(userInput) {
-  console.log("yup");
-  
+ 
     fetch(`${GITHUB_API_BASE_URL}/users/` + userInput + `/repos`)
       .then(res => {
         return res.json()
@@ -38,6 +37,5 @@ function displayResults(json) {
 
 
 $(function() { 
-  console.log('App loaded! Waiting for submit!');
   watchForm(); 
 });
